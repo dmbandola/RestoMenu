@@ -21,7 +21,7 @@ insert into restoMenu(dishname, price) values ('Belgian Waffle w/ Pecans', '$7.2
 --getter
 
 create or replace function get_dish_byId (in int, out text, out text)
-    return setof record as
+    returns setof record as
 $$
 
     select dish, price where dish_id = $1;
