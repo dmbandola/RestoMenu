@@ -1,0 +1,18 @@
+create table menu(
+    dishname text,
+    price numeric,
+    dish_id primary key,
+
+);
+
+--setter
+
+create or replace function get_dishname (in text, out text, out numeric)
+    return setof record as
+$$
+
+select dishname, price where dishname = $1 and price =$1;
+
+$$
+
+language 'sql';
